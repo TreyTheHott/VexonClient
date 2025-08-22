@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "vexonclient.mixin",
+	"package": "vexonclient.mixins",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-
+		"KeyboardMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
