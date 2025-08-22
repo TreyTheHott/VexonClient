@@ -19,7 +19,7 @@ public class Listener {
 
     public void invoke(Event event) {
         try {
-            this.method.invoke(event);
+            this.method.invoke(owner, event);
         } catch (Exception e) {
             VexonClient.LOGGER.error("[Listener] {}", e.getMessage());
         }

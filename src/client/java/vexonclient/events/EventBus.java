@@ -1,6 +1,7 @@
 package vexonclient.events;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.*;
 
 /**
@@ -36,10 +37,11 @@ public class EventBus {
      *
      * @param event the event instance to dispatch
      */
-    public void post(Event event) {
+    public Event post(Event event) {
         List<Listener> eventListeners = listeners.getOrDefault(event.getClass(), Collections.emptyList());
         for (Listener listener : eventListeners) {
             listener.invoke(event);
         }
+        return event;
     }
 }
