@@ -11,6 +11,9 @@ import vexonclient.events.game.GameJoinedEvent;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public class ClientPlayNetworkHandlerMixin {
+    /**
+     * Fires GameJoinedEvent
+     */
     @Inject(method = "onGameJoin", at = @At("HEAD"))
     private void onGameJoinPre(GameJoinS2CPacket packet, CallbackInfo ci) {
         VexonClient.EVENT_BUS.post(new GameJoinedEvent());

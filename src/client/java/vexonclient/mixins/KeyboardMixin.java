@@ -11,6 +11,9 @@ import vexonclient.events.vexon.KeyEvent;
 
 @Mixin(Keyboard.class)
 public class KeyboardMixin {
+    /**
+     * Fires KeyEvent
+     */
     @Inject(method = "onKey", at = @At("HEAD"), cancellable = true)
     private void onKeyPre(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
         if (key == GLFW.GLFW_KEY_UNKNOWN || key == GLFW.GLFW_REPEAT) return;
