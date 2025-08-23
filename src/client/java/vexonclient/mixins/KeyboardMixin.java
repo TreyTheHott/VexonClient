@@ -12,7 +12,7 @@ import vexonclient.events.vexon.KeyEvent;
 @Mixin(Keyboard.class)
 public class KeyboardMixin {
     @Inject(method = "onKey", at = @At("HEAD"), cancellable = true)
-    private void onKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
+    private void onKeyPre(long window, int key, int scancode, int action, int modifiers, CallbackInfo ci) {
         if (key == GLFW.GLFW_KEY_UNKNOWN || key == GLFW.GLFW_REPEAT) return;
 
         if (VexonClient.EVENT_BUS.post(new KeyEvent(key, scancode, action, modifiers)).isCancelled()) ci.cancel();
