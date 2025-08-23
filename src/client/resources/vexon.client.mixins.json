@@ -5,7 +5,8 @@
 	"client": [
 		"ClientPlayNetworkHandlerMixin",
 		"KeyboardMixin",
-		"MinecraftClientMixin"
+		"MinecraftClientMixin",
+		"MouseMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
