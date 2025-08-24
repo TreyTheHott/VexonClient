@@ -4,7 +4,7 @@ import vexonclient.events.Event;
 
 /**
  * Represents a mouse event.
- * Fired whenever the mouse is clicked or moved.
+ * Fired whenever the mouse is clicked.
  */
 public class MouseEvent extends Event {
     private final int button, action, x, y;
@@ -19,23 +19,14 @@ public class MouseEvent extends Event {
     public int getButton() {
         return button;
     }
-    public int getAction() {
-        return action;
-    }
     public int getX() {
         return x;
     }
     public int getY() {
         return y;
     }
-    public boolean isLeftClick() {
-        return button == 0 && action == 1;
-    }
-    public boolean isRightClick() {
-        return button == 1 && action == 1;
-    }
-    public boolean isMiddleClick() {
-        return button == 2 && action == 1;
+    public boolean isPressed() {
+        return action == 1;
     }
     public boolean isReleased() {
         return action == 0;
