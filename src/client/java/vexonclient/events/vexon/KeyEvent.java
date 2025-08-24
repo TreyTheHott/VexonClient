@@ -1,20 +1,21 @@
 package vexonclient.events.vexon;
 
-import org.lwjgl.glfw.GLFW;
 import vexonclient.events.Event;
+import vexonclient.utils.input.KeyAction;
 
 /**
  * Represents a keyboard input event.
  * Fired whenever a key is pressed or released.
  */
 public class KeyEvent extends Event {
-    private final int key, scancode, action, modifiers;
+    private final int key, scancode, modifiers;
+    private final KeyAction action;
 
     public KeyEvent(int key, int scancode, int action, int modifiers) {
         this.key = key;
         this.scancode = scancode;
-        this.action = action;
         this.modifiers = modifiers;
+        this.action = KeyAction.get(action);
     }
 
     public int getKey() {
@@ -23,13 +24,10 @@ public class KeyEvent extends Event {
     public int getScancode() {
         return scancode;
     }
-    public int getAction() {
-        return action;
-    }
     public int getModifiers() {
         return modifiers;
     }
-    public boolean isPressed() {
-        return action == GLFW.GLFW_PRESS;
+    public KeyAction getAction() {
+        return action;
     }
 }
