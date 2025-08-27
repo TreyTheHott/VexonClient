@@ -5,6 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vexonclient.events.EventBus;
+import vexonclient.module.ModuleManager;
 
 public class VexonClient implements ClientModInitializer {
 	public static final MinecraftClient mc = MinecraftClient.getInstance();
@@ -14,5 +15,6 @@ public class VexonClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("Vexon Client Started!");
+		ModuleManager.init();
 	}
 }
